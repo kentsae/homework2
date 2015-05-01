@@ -14,7 +14,8 @@ class MoviesController < ApplicationController
   def index
     @movies = Movie.all
     
-    #################3/24/15 hw2 part2#################
+    #################3/24/15 hw2 part 2#################
+    #Filters by movie ratings
     @all_ratings = Movie.all_ratings
     
     if params[:ratings]
@@ -28,13 +29,15 @@ class MoviesController < ApplicationController
       @ratings_hash = {}
       @ratings_array = @all_ratings
     end
-      
+    
+    #################3/24/15 hw2 part 1.b#################
+    #Sorts by movie title and release dates  
     if params[:sort_by]
       session[:sort_by] = params[:sort_by]
       if (params[:sort_by] == "title")
         @title_header_class = "hilite"
       elsif (params[:sort_by] == "release_date")
-        @release_date_header_class == "hilite"
+        @release_date_header_class = "hilite"
       end
       elsif session[:sort_by] && params[:ratings]
         flash.keep

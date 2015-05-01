@@ -1,10 +1,4 @@
-class MoviesController < ApplicationController
-  #################3/24/15 hw2 part 1.b#################
-  def sort
-    
-  end
-  #################################################
-  
+class MoviesController < ApplicationController  
   def show
     id = params[:id] # retrieve movie ID from URI route
     @movie = Movie.find(id) # look up movie by unique ID
@@ -14,7 +8,8 @@ class MoviesController < ApplicationController
   def index
     @movies = Movie.all
     
-    #################3/24/15 hw2 part2#################
+    #################3/24/15 hw2 part 2#################
+    #Filters by movie ratings
     @all_ratings = Movie.all_ratings
     
     if params[:ratings]
@@ -28,7 +23,9 @@ class MoviesController < ApplicationController
       @ratings_hash = {}
       @ratings_array = @all_ratings
     end
-      
+    
+    #################3/24/15 hw2 part 1.b#################
+    #Sorts by movie title and release dates  
     if params[:sort_by]
       session[:sort_by] = params[:sort_by]
       if (params[:sort_by] == "title")
