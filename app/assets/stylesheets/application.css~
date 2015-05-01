@@ -40,7 +40,7 @@ table#movies {
   border-bottom: 2px solid black;
 }
 
-table#movies th.hilite {
+table#movies th {
   background-color: yellow;
 }
 

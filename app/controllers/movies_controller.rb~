@@ -34,7 +34,7 @@ class MoviesController < ApplicationController
       if (params[:sort_by] == "title")
         @title_header_class = "hilite"
       elsif (params[:sort_by] == "release_date")
-        @release_date_header_class = "hilite"
+        @release_date_header_class == "hilite"
       end
       elsif session[:sort_by] && params[:ratings]
         flash.keep
